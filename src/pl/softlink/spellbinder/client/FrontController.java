@@ -5,9 +5,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
-import java.util.LinkedList;
 import java.util.logging.Logger;
-import pl.softlink.spellbinder.lib.diff_match_patch;
 import pl.softlink.spellbinder.service.TextDiff;
 
 
