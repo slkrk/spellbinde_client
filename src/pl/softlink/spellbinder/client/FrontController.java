@@ -6,6 +6,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 import java.util.logging.Logger;
+
+import pl.softlink.spellbinder.client.connection.ClientRunnable;
 import pl.softlink.spellbinder.service.TextDiff;
 
 
@@ -21,6 +23,10 @@ public class FrontController {
 
         String newContent = ((TextArea) root.getChildren().get(0)).getText();
         String diff = TextDiff.generate(content, newContent);
+
+        if (diff != null) {
+            ClientRunnable.send(diff);
+        }
 
         content = TextDiff.apply(content, diff);
 

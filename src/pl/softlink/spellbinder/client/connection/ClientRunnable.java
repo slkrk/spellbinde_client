@@ -1,5 +1,7 @@
 package pl.softlink.spellbinder.client.connection;
 
+import pl.softlink.spellbinder.server.Config;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -11,9 +13,6 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ClientRunnable implements Runnable {
 
-    public static final String HOST = "127.0.0.1";
-    public static final int PORT = 6789;
-
     private static ClientRunnable instance;
     private static boolean closed = false;
 
@@ -21,9 +20,9 @@ public class ClientRunnable implements Runnable {
     private Lock lock = new ReentrantLock();
 
     public static void initialize() {
-        ClientRunnable instance = new ClientRunnable();
+        instance = new ClientRunnable();
         Thread thread = new Thread(instance);
-        thread.run();
+        thread.start();
     }
 
     public static void send(String payload) {
@@ -41,7 +40,7 @@ public class ClientRunnable implements Runnable {
     public void run() {
 
         try {
-            Socket socket = new Socket(InetAddress.getByName(HOST), PORT);
+            Socket socket = new Socket(InetAddress.getByName(Config.CONNECTION_HOST), Config.CONNECTION_PORT);
 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
@@ -59,7 +58,7 @@ public class ClientRunnable implements Runnable {
                     continue;
                 }
 
-                out.print(payload);
+                out.println(payload);
             }
 
             socket.close();

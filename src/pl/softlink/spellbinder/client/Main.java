@@ -21,5 +21,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         ClientRunnable.initialize();
         launch(args);
+        ClientRunnable.close();
     }
 }
