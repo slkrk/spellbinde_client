@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spellbinder_client.iml" filepath="$PROJECT_DIR$/spellbinder_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spellbinder.iml" filepath="$PROJECT_DIR$/spellbinder.iml" />
     </modules>
   </component>
 </project>
