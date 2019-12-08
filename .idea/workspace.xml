@@ -2,44 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spellbinder.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/Document.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/security/Security.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/client/FrontController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/client/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/client/connection/ClientRunnable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/lib/diff_match_patch$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/lib/diff_match_patch$Diff.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/lib/diff_match_patch$LinesToCharsResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/lib/diff_match_patch$Operation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/lib/diff_match_patch$Patch.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/lib/diff_match_patch.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/Config.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/connection/ServerRunnable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/document/Document.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/model/Document.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/model/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/server/security/Security.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/pl/softlink/spellbinder/service/TextDiff.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/JDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spellbinder_client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/client/FrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/FrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/client/connection/ClientRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/ClientRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/client/front.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/front.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/lib/diff_match_patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/lib/diff_match_patch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/server/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/server/connection/ServerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/ServerRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/server/document/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/document/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/softlink/spellbinder/service/TextDiff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/service/TextDiff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,12 +75,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1612" />
-    <option name="height" value="876" />
-  </component>
   <component name="ProjectId" id="1UZoTj3dIZX4HY02tI4dgDSpMNB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -232,53 +195,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="spellbinder" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="spellbinder" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -338,7 +254,8 @@
       <workItem from="1575573491049" duration="1673000" />
       <workItem from="1575654367229" duration="3282000" />
       <workItem from="1575715554442" duration="9712000" />
-      <workItem from="1575747688293" duration="5560000" />
+      <workItem from="1575747688293" duration="5642000" />
+      <workItem from="1575829607415" duration="7957000" />
     </task>
     <servers />
   </component>
@@ -362,22 +279,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575726923166" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1575752637734">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1575753697018">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575752637734" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1575752637734">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575753697018" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1575753697018">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575752637734" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1575752637734">
+    <state width="1877" height="285" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575753697018" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1575753697018">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575752637734" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1575752637734">
+    <state width="1877" height="285" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575753697018" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1575753697018">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575752637734" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575753697018" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1575730434991">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -402,6 +319,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575752177978" />
+    <state x="657" y="130" width="606" height="789" key="find.popup" timestamp="1575830790635">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="657" y="130" width="606" height="789" key="find.popup/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575830790635" />
+    <state x="623" y="227" key="search.everywhere.popup" timestamp="1575834667334">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" key="search.everywhere.popup/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575834667334" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
