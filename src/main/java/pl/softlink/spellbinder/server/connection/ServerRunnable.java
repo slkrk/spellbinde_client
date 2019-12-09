@@ -1,4 +1,5 @@
 package pl.softlink.spellbinder.server.connection;
+import org.json.JSONObject;
 import pl.softlink.spellbinder.server.document.Document;
 
 import java.io.BufferedReader;
@@ -22,7 +23,11 @@ public class ServerRunnable implements Runnable {
 
             while (true) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String diff = bufferedReader.readLine();
+                String payload = bufferedReader.readLine();
+
+                JSONObject payloadJson = new JSONObject(payload);
+                String diff = payloadJson.getString("diff");
+
                 document.patch(diff);
                 System.out.println(document.getContent());
                 System.out.println();
