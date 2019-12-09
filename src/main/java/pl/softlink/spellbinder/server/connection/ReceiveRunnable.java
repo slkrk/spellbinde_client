@@ -6,10 +6,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.*;
 
-public class ServerRunnable implements Runnable {
+public class ReceiveRunnable implements Runnable {
     Socket socket;
 
-    public ServerRunnable(Socket socket)
+    private static Document document = Document.getInstance();
+
+    public ReceiveRunnable(Socket socket)
     {
         super();
         this.socket = socket;
@@ -19,7 +21,7 @@ public class ServerRunnable implements Runnable {
     {
         try {
 
-            Document document = new Document();
+//            Document document = new Document();
 
             while (true) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -36,4 +38,6 @@ public class ServerRunnable implements Runnable {
             System.err.println(e);
         }
     }
+
+
 }

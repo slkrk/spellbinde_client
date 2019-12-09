@@ -1,12 +1,10 @@
 package pl.softlink.spellbinder.server;
 
-import pl.softlink.spellbinder.server.connection.ServerRunnable;
+import pl.softlink.spellbinder.server.connection.ReceiveRunnable;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Main {
 
@@ -17,7 +15,7 @@ public class Main {
             ServerSocket serverSocket = new ServerSocket(Config.CONNECTION_PORT);
             while (true) {
                 Socket socket = serverSocket.accept();
-                ServerRunnable serverTCPRunnable = new ServerRunnable(socket);
+                ReceiveRunnable serverTCPRunnable = new ReceiveRunnable(socket);
                 Thread thread = new Thread(serverTCPRunnable);
                 thread.start();
                 System.out.println("Serwer: zakończono wątek.");
