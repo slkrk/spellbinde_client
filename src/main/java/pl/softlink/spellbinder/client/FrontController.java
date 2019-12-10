@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 import java.util.logging.Logger;
 
 import org.json.JSONObject;
-import pl.softlink.spellbinder.client.connection.ClientRunnable;
+import pl.softlink.spellbinder.client.connection.PushRunnable;
 import pl.softlink.spellbinder.service.TextDiff;
 
 
@@ -30,7 +30,7 @@ public class FrontController {
             JSONObject payloadJson = new JSONObject();
             payloadJson.put("diff", diff);
             String payloadString = payloadJson.toString();
-            ClientRunnable.send(payloadString);
+            PushRunnable.send(payloadString);
         }
 
         content = TextDiff.apply(content, diff);

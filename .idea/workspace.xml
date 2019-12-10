@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/SendRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/PullRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/PushRunnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/ServerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/ReceiveRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/document/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/document/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/FrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/FrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/ClientRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/Connection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,20 +104,21 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\resources" />
+      <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\java\pl\softlink\spellbinder\client\view" />
+      <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\java\pl\softlink\spellbinder\client" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pl.softlink.spellbinder.client.connection" />
+      <recent name="pl.softlink.spellbinder.server.connection" />
+      <recent name="pl.softlink.spellbinder.server" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\resources" />
       <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\target\classes\pl\softlink\spellbinder\client" />
       <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\java\pl\softlink\spellbinder\client" />
       <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\pl\softlink\spellbinder\server\connection" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="pl.softlink.spellbinder.server.connection" />
-      <recent name="pl.softlink.spellbinder.server" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\resources" />
-      <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\java\pl\softlink\spellbinder\client\view" />
-      <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\src\main\java\pl\softlink\spellbinder\client" />
     </key>
   </component>
   <component name="RunManager" selected="Application.client2">
@@ -274,6 +276,7 @@
       <workItem from="1575829607415" duration="7957000" />
       <workItem from="1575910822251" duration="3649000" />
       <workItem from="1575914853398" duration="3136000" />
+      <workItem from="1576007539262" duration="3938000" />
     </task>
     <servers />
   </component>
@@ -357,10 +360,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="92" y="92" width="1736" height="866" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575914823320" />
-    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575752177978">
+    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576009722603">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575752177978" />
+    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576009722603" />
     <state x="657" y="130" width="606" height="789" key="find.popup" timestamp="1575912026380">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -374,17 +377,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/ClientRunnable.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/ClientRunnable.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/ClientRunnable.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/connection/PushRunnable.java</url>
           <line>70</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
