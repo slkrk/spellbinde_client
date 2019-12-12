@@ -6,7 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.softlink.spellbinder.client.connection.Connection;
-import pl.softlink.spellbinder.client.connection.PushRunnable;
+import pl.softlink.spellbinder.client.event.DocumentChangedRemotelyEvent;
+import pl.softlink.spellbinder.client.event.EditorKeyPressedEvent;
 import pl.softlink.spellbinder.server.Config;
 
 public class Main extends Application {
@@ -22,11 +23,25 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        System.out.println(System.getProperty("user.dir"));
+        Context context = new Context();
+        Context.setMainContext(context);
+
+        Document document = new Document();
+
+        context.setCurrentDocument(document);
+
         Connection connection = new Connection(Config.CONNECTION_HOST, Config.CONNECTION_PORT);
+        context.setConnection(connection);
 
+//        new EditorController();
+//
+//        context.postEvent(new EditorKeyPressedEvent("sdf"));
+//        context.postEvent(new DocumentChangedRemotelyEvent(document, "sdf"));
 
-        launch(args);
-        connection.close();
+//
+//
+//
+//        launch(args);
+//        connection.close();
     }
 }

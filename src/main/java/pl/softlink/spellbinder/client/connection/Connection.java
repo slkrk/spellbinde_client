@@ -1,25 +1,24 @@
 package pl.softlink.spellbinder.client.connection;
 
-import pl.softlink.spellbinder.server.Config;
+import org.json.JSONObject;
+import pl.softlink.spellbinder.client.event.DocumentChangedLocallyEvent;
+import pl.softlink.spellbinder.client.event.EventListener;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.LinkedList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class Connection {
+public class Connection implements EventListener<DocumentChangedLocallyEvent> {
 
     private Socket socket;
 
     private PushRunnable pushRunnable;
     private PullRunnable pullRunnable;
+    private RemoteActionRunnable remoteActionRunnable;
 
     private Thread pushThread;
     private Thread pullThread;
+    private Thread remoteActionThread;
 
     public Connection(String host, int port) {
 
@@ -27,8 +26,10 @@ public class Connection {
             socket = new Socket(InetAddress.getByName(host), port);
             pushRunnable = new PushRunnable(socket);
             pullRunnable = new PullRunnable(socket);
+            remoteActionRunnable = new RemoteActionRunnable(pullRunnable);
             pushThread = new Thread(pushRunnable);
             pullThread = new Thread(pullRunnable);
+            remoteActionThread = new Thread(remoteActionRunnable);
         } catch (IOException e) {
             throw new RuntimeException("Nieznany host", e);
         } catch (Exception e) {
@@ -43,11 +44,13 @@ public class Connection {
     public void start() {
         pushThread.start();
         pullThread.start();
+        remoteActionThread.start();
     }
 
     public void close() {
         pushRunnable.close();
         pullRunnable.close();
+        remoteActionRunnable.close();
         try {
             socket.close();
         } catch (IOException ex) {
@@ -59,8 +62,15 @@ public class Connection {
         pushRunnable.push(payload);
     }
 
-    public String pull() {
-        return pullRunnable.pull();
-    }
+//    public String pull() {
+//        return pullRunnable.pull();
+//    }
 
+    @Override
+    public void onEvent(DocumentChangedLocallyEvent event) {
+        JSONObject payloadJson = new JSONObject();
+        payloadJson.put("diff", event.getDiff());
+        String payloadString = payloadJson.toString();
+        push(payloadString);
+    }
 }
