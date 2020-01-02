@@ -1,11 +1,13 @@
-package pl.softlink.spellbinder.client.event;
+package pl.softlink.spellbinder.global.event;
 
 public class PatchReceivedEvent extends Event {
 
     int documentId;
+    int connectionId;
     String diff;
 
-    public PatchReceivedEvent(int documentId, String diff) {
+    public PatchReceivedEvent(int connectionId, int documentId, String diff) {
+        this.connectionId = connectionId;
         this.documentId = documentId;
         this.diff = diff;
     }
@@ -16,5 +18,9 @@ public class PatchReceivedEvent extends Event {
 
     public int getDocumentId() {
         return documentId;
+    }
+
+    public int getConnectionId() {
+        return connectionId;
     }
 }

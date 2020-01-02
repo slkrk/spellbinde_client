@@ -1,17 +1,22 @@
 package pl.softlink.spellbinder.client;
 
-import pl.softlink.spellbinder.client.connection.Connection;
 import pl.softlink.spellbinder.client.event.*;
+import pl.softlink.spellbinder.global.connection.Connection;
+import pl.softlink.spellbinder.global.event.DocumentChangedRemotelyEvent;
+import pl.softlink.spellbinder.global.event.Event;
+import pl.softlink.spellbinder.global.event.EventDispatcher;
+import pl.softlink.spellbinder.global.event.PatchReceivedEvent;
 
-public class Context {
+public class Context implements pl.softlink.spellbinder.global.Context {
 
     private static Context mainContext = null;
 
     private EventDispatcher eventDispatcher = new EventDispatcher();
 
     private Document currentDocument = null;
-    private Connection connection = null;
     private EditorController editorController = null;
+    private LocalAction localAction = null;
+    private Connection connection;
 
     public EventDispatcher getEventDispatcher() {
         return eventDispatcher;
@@ -33,6 +38,15 @@ public class Context {
         return currentDocument;
     }
 
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public Context setConnection(Connection connection) {
+        this.connection = connection;
+        return this;
+    }
+
     public Context setCurrentDocument(Document currentDocument) {
         eventDispatcher.unregisterListener(EditorKeyPressedEvent.class, this.currentDocument);
         eventDispatcher.unregisterListener(PatchReceivedEvent.class, this.currentDocument);
@@ -42,17 +56,17 @@ public class Context {
         return this;
     }
 
-    public Context setConnection(Connection connection) {
-        eventDispatcher.unregisterListener(DocumentChangedLocallyEvent.class, this.connection);
-        this.connection = connection;
-        eventDispatcher.registerListener(DocumentChangedLocallyEvent.class, this.connection);
-        return this;
-    }
-
     public Context setEditorController(EditorController editorController) {
         eventDispatcher.unregisterListener(DocumentChangedRemotelyEvent.class, this.editorController);
         this.editorController = editorController;
         eventDispatcher.registerListener(DocumentChangedRemotelyEvent.class, this.editorController);
+        return this;
+    }
+
+    public Context setLocalAction(LocalAction localAction) {
+        eventDispatcher.unregisterListener(DocumentChangedLocallyEvent.class, this.localAction);
+        this.localAction = localAction;
+        eventDispatcher.registerListener(DocumentChangedLocallyEvent.class, this.localAction);
         return this;
     }
 

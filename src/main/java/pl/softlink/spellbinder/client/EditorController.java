@@ -4,9 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import pl.softlink.spellbinder.client.event.DocumentChangedRemotelyEvent;
+import pl.softlink.spellbinder.global.event.DocumentChangedRemotelyEvent;
 import pl.softlink.spellbinder.client.event.EditorKeyPressedEvent;
-import pl.softlink.spellbinder.client.event.EventListener;
+import pl.softlink.spellbinder.global.event.EventListener;
 
 public class EditorController implements EventListener<DocumentChangedRemotelyEvent> {
 

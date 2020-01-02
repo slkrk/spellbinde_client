@@ -1,7 +1,4 @@
-package pl.softlink.spellbinder.client;
-
-import pl.softlink.spellbinder.client.event.Event;
-import pl.softlink.spellbinder.client.event.EventListener;
+package pl.softlink.spellbinder.global.event;
 
 import java.util.HashMap;
 import java.util.LinkedList;

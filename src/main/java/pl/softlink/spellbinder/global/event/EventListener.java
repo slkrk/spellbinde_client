@@ -1,4 +1,4 @@
-package pl.softlink.spellbinder.client.event;
+package pl.softlink.spellbinder.global.event;
 
 public interface EventListener<Event> {
 

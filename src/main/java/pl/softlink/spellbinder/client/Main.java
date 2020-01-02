@@ -5,10 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pl.softlink.spellbinder.client.connection.Connection;
-import pl.softlink.spellbinder.client.event.DocumentChangedRemotelyEvent;
-import pl.softlink.spellbinder.client.event.EditorKeyPressedEvent;
+import pl.softlink.spellbinder.client.connection.RemoteActionRunnable;
+import pl.softlink.spellbinder.global.connection.Connection;
 import pl.softlink.spellbinder.server.Config;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 
 public class Main extends Application {
 
@@ -26,12 +29,28 @@ public class Main extends Application {
         Context context = new Context();
         Context.setMainContext(context);
 
-        Document document = new Document();
+        Document document = new Document(123);
 
         context.setCurrentDocument(document);
 
-        Connection connection = new Connection(Config.CONNECTION_HOST, Config.CONNECTION_PORT);
+        Socket socket = null;
+
+        try {
+            socket = new Socket(InetAddress.getByName(Config.CONNECTION_HOST), Config.CONNECTION_PORT);
+        } catch (IOException e) {
+            throw new RuntimeException("Nieznany host", e);
+        }
+
+        RemoteActionRunnable remoteActionRunnable = new RemoteActionRunnable();
+
+        Connection connection = new Connection(socket, remoteActionRunnable);
+        LocalAction localAction = new LocalAction(connection);
+
         context.setConnection(connection);
+        context.setLocalAction(localAction);
+
+        connection.start();
+
 
 //        new EditorController();
 //
@@ -41,7 +60,7 @@ public class Main extends Application {
 //
 //
 //
-//        launch(args);
+        launch(args);
 //        connection.close();
     }
 }

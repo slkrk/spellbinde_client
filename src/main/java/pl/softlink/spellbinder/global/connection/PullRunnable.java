@@ -1,32 +1,35 @@
-package pl.softlink.spellbinder.client.connection;
+package pl.softlink.spellbinder.global.connection;
 
-import pl.softlink.spellbinder.server.Config;
-
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class PushRunnable implements Runnable {
+public class PullRunnable implements Runnable {
 
     private Socket socket;
     private boolean closed = false;
     private LinkedList<String> payloadList = new LinkedList<String>();
     private Lock lock = new ReentrantLock();
 
-    public PushRunnable(Socket socket) {
+    public PullRunnable(Socket socket) {
         this.socket = socket;
     }
 
-    public void push(String payload) {
+    public String pull() {
+        String payload = null;
         lock.lock();
         try {
-            payloadList.addLast(payload);
+            if (! payloadList.isEmpty()) {
+                payload = payloadList.pop();
+            }
         } finally {
             lock.unlock();
         }
+        return payload;
     }
 
     public void close() {
@@ -35,30 +38,20 @@ public class PushRunnable implements Runnable {
 
     public void run() {
         try {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             while (! closed) {
-
-                String payload = null;
-
+                String payload = bufferedReader.readLine();
                 lock.lock();
                 try {
-                    if (! payloadList.isEmpty()) {
-                        payload = payloadList.pop();
-                    }
+                    payloadList.addLast(payload);
                 } finally {
                     lock.unlock();
                 }
-
-                if (payload == null) {
-                    continue;
-                }
-
-                out.println(payload);
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("PushRunnable: nie można odczytać strumienia.", e);
+            throw new RuntimeException("PushRunnable: nie można odczytać bufora.", e);
         }
     }
 

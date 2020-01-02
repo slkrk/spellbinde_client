@@ -1,7 +1,7 @@
-package pl.softlink.spellbinder.client.connection;
+package pl.softlink.spellbinder.server.connection;
 
 import org.json.JSONObject;
-import pl.softlink.spellbinder.client.Context;
+import pl.softlink.spellbinder.server.Context;
 import pl.softlink.spellbinder.global.event.PatchReceivedEvent;
 
 public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connection.RemoteActionRunnable {
