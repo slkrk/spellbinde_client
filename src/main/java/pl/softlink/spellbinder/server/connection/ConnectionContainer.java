@@ -34,5 +34,7 @@ public class ConnectionContainer implements EventListener<DocumentChangedRemotel
         }
     }
 
-
+    public Connection getConnection() {
+        return connection;
+    }
 }

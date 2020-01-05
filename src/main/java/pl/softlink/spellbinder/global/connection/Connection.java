@@ -25,7 +25,7 @@ public class Connection {
             this.socket = socket;
             pushRunnable = new PushRunnable(this.socket);
             pullRunnable = new PullRunnable(this.socket);
-            this.remoteActionRunnable.setPullRunnable(pullRunnable);
+            this.remoteActionRunnable.setPullConnection(this);
             pushThread = new Thread(pushRunnable);
             pullThread = new Thread(pullRunnable);
             remoteActionThread = new Thread(remoteActionRunnable);

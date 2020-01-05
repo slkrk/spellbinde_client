@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.softlink.spellbinder.client.connection.RemoteActionRunnable;
+import pl.softlink.spellbinder.client.controller.FrontController;
 import pl.softlink.spellbinder.global.connection.Connection;
 import pl.softlink.spellbinder.server.Config;
 
@@ -17,10 +18,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource( "/view/editor.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+
+        FrontController frontController = new FrontController(primaryStage);
+        Context.getMainContext().setFrontController(frontController);
+        Context.getMainContext().getFrontController().loadLogin();
+
+//        Parent root = FXMLLoader.load(getClass().getResource( "/view/main.fxml"));
+//        primaryStage.setTitle("SpellBinder");
+//        primaryStage.setScene(new Scene(root, 300, 275));
+//        primaryStage.show();
     }
 
 
@@ -51,15 +57,6 @@ public class Main extends Application {
 
         connection.start();
 
-
-//        new EditorController();
-//
-//        context.postEvent(new EditorKeyPressedEvent("sdf"));
-//        context.postEvent(new DocumentChangedRemotelyEvent(document, "sdf"));
-
-//
-//
-//
         launch(args);
 //        connection.close();
     }

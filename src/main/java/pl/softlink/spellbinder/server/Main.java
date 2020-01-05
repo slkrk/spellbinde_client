@@ -1,11 +1,9 @@
 package pl.softlink.spellbinder.server;
 
-import pl.softlink.spellbinder.server.Context;
 import pl.softlink.spellbinder.global.connection.Connection;
 import pl.softlink.spellbinder.server.connection.ConnectionContainer;
 import pl.softlink.spellbinder.server.connection.RemoteActionRunnable;
 
-import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -29,6 +27,7 @@ public class Main {
 
                 ConnectionContainer connectionContainer = new ConnectionContainer(connection);
                 connectionContainer.setCurrentDocumentId(currentDocumentId);
+                remoteActionRunnable.setConnectionContainer(connectionContainer);
 
                 context.addConnectionContainer(connectionContainer);
 

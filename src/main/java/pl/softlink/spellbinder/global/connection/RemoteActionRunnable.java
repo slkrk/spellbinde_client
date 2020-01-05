@@ -4,10 +4,10 @@ public abstract class RemoteActionRunnable implements Runnable{
 
     private boolean closed = false;
 
-    private PullRunnable pullRunnable;
+    private Connection connection;
 
-    public void setPullRunnable(PullRunnable pullRunnable) {
-        this.pullRunnable = pullRunnable;
+    public void setPullConnection(Connection connection) {
+        this.connection = connection;
     }
 
     public void close() {
@@ -18,7 +18,7 @@ public abstract class RemoteActionRunnable implements Runnable{
         try {
 
             while (! closed) {
-                String payload = pullRunnable.pull();
+                String payload = connection.pull();
                 if (payload != null) {
                     exec(payload);
                 }

@@ -1,5 +1,7 @@
 package pl.softlink.spellbinder.client;
 
+import pl.softlink.spellbinder.client.controller.EditorController;
+import pl.softlink.spellbinder.client.controller.FrontController;
 import pl.softlink.spellbinder.client.event.*;
 import pl.softlink.spellbinder.global.connection.Connection;
 import pl.softlink.spellbinder.global.event.DocumentChangedRemotelyEvent;
@@ -17,6 +19,7 @@ public class Context implements pl.softlink.spellbinder.global.Context {
     private EditorController editorController = null;
     private LocalAction localAction = null;
     private Connection connection;
+    private FrontController frontController;
 
     public EventDispatcher getEventDispatcher() {
         return eventDispatcher;
@@ -32,10 +35,6 @@ public class Context implements pl.softlink.spellbinder.global.Context {
 
     public static void setMainContext(Context mainContext) {
         Context.mainContext = mainContext;
-    }
-
-    public Document getCurrentDocument() {
-        return currentDocument;
     }
 
     public Connection getConnection() {
@@ -56,6 +55,10 @@ public class Context implements pl.softlink.spellbinder.global.Context {
         return this;
     }
 
+    public Document getCurrentDocument() {
+        return currentDocument;
+    }
+
     public Context setEditorController(EditorController editorController) {
         eventDispatcher.unregisterListener(DocumentChangedRemotelyEvent.class, this.editorController);
         this.editorController = editorController;
@@ -69,5 +72,19 @@ public class Context implements pl.softlink.spellbinder.global.Context {
         eventDispatcher.registerListener(DocumentChangedLocallyEvent.class, this.localAction);
         return this;
     }
+
+    public LocalAction getLocalAction() {
+        return localAction;
+    }
+
+    public FrontController getFrontController() {
+        return frontController;
+    }
+
+    public Context setFrontController(FrontController frontController) {
+        this.frontController = frontController;
+        return this;
+    }
+
 
 }
