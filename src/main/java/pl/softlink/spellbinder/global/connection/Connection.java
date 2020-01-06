@@ -38,6 +38,11 @@ public class Connection {
         }
     }
 
+    public Connection setConnectionId(int connectionId) {
+        this.connectionId = connectionId;
+        return this;
+    }
+
     public void start() {
         pushThread.start();
         pullThread.start();

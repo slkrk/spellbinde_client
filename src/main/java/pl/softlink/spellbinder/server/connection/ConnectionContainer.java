@@ -37,4 +37,9 @@ public class ConnectionContainer implements EventListener<DocumentChangedRemotel
     public Connection getConnection() {
         return connection;
     }
+
+    public ConnectionContainer setUser(User user) {
+        this.user = user;
+        return this;
+    }
 }

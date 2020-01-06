@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import pl.softlink.spellbinder.client.Context;
 import pl.softlink.spellbinder.client.connection.Request;
 import pl.softlink.spellbinder.client.event.ResponseEvent;
+import pl.softlink.spellbinder.global.security.Security;
 
 import java.util.HashMap;
 
@@ -29,7 +30,7 @@ public class LoginController extends ControllerAbstract {
 
         HashMap<String, String> body = new HashMap<String, String>();
         body.put("email", emailTextField.getText());
-        body.put("password", passwordTextField.getText());
+        body.put("password", Security.md5(passwordTextField.getText()));
 
         Request request = new Request("register", body);
 

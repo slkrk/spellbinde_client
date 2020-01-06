@@ -32,10 +32,10 @@ public class User extends Model{
         }
     }
 
-//    public User(String email, String password) {
-//        this.email = email;
-//        this.password = password;
-//    }
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public User(String email, String password, int id) {
         this.password = password;
@@ -51,7 +51,7 @@ public class User extends Model{
 
         String sql = "`user` SET";
         sql += " `email`=?";
-        sql += " `password`=?";
+        sql += ", `password`=?";
 
         if (isNew()) {
             sql = "INSERT INTO " + sql;
@@ -64,7 +64,7 @@ public class User extends Model{
             preparedStatement.setString (1, this.email);
             preparedStatement.setString (2, this.password);
 
-            if (isNew()) {
+            if (! isNew()) {
                 preparedStatement.setInt(3, this.id);
             }
 
@@ -79,7 +79,11 @@ public class User extends Model{
         }
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-
-
+    public String getPassword() {
+        return password;
+    }
 }

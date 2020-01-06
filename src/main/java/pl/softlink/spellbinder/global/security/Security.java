@@ -1,17 +1,9 @@
-package pl.softlink.spellbinder.server.security;
+package pl.softlink.spellbinder.global.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Security {
-
-    public static void main(String args[]) {
-        System.out.println(md5("asdf"));
-    }
-
-    public void register(String email, String passwordRaw) {
-
-    }
 
     public static String md5(String string) {
         try {
