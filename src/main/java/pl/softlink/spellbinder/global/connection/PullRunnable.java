@@ -1,5 +1,7 @@
 package pl.softlink.spellbinder.global.connection;
 
+import pl.softlink.spellbinder.global.ThreadHelper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,6 +43,7 @@ public class PullRunnable implements Runnable {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             while (! closed) {
+                System.out.println("PullRunnable::run waiting for buffer.");
                 String payload = bufferedReader.readLine();
                 lock.lock();
                 try {

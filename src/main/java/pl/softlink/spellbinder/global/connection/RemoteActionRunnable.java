@@ -1,5 +1,7 @@
 package pl.softlink.spellbinder.global.connection;
 
+import pl.softlink.spellbinder.global.ThreadHelper;
+
 public abstract class RemoteActionRunnable implements Runnable{
 
     private boolean closed = false;
@@ -21,6 +23,8 @@ public abstract class RemoteActionRunnable implements Runnable{
                 String payload = connection.pull();
                 if (payload != null) {
                     exec(payload);
+                } else {
+                    ThreadHelper.sleep();
                 }
             }
 

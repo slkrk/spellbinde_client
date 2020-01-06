@@ -3,6 +3,7 @@ package pl.softlink.spellbinder.client.connection;
 import pl.softlink.spellbinder.client.Context;
 import pl.softlink.spellbinder.client.event.ResponseEvent;
 import pl.softlink.spellbinder.global.ContextAware;
+import pl.softlink.spellbinder.global.ThreadHelper;
 import pl.softlink.spellbinder.global.event.EventListener;
 
 import java.util.Map;
@@ -62,6 +63,7 @@ public class Request implements Callable<ResponseEvent>, EventListener<ResponseE
         getContext().getLocalAction().sendRequest(this);
         while (responseEvent == null) {
 //            wait
+            ThreadHelper.sleep();
         }
 
         return responseEvent;

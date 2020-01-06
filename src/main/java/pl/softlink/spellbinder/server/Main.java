@@ -21,6 +21,7 @@ public class Main {
             int currentDocumentId = 123;
 
             while (true) {
+                System.out.println("Serwer: oczekiwanie na nowe połączenie.");
                 Socket socket = serverSocket.accept();
                 RemoteActionRunnable remoteActionRunnable = new RemoteActionRunnable();
                 Connection connection = new Connection(socket, remoteActionRunnable);

@@ -1,5 +1,7 @@
 package pl.softlink.spellbinder.global.connection;
 
+import pl.softlink.spellbinder.global.ThreadHelper;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -49,6 +51,7 @@ public class PushRunnable implements Runnable {
                 }
 
                 if (payload == null) {
+                    ThreadHelper.sleep();
                     continue;
                 }
 

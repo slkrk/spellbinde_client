@@ -15,7 +15,9 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
                 Context.getMainContext().postEvent(new PatchReceivedEvent(payloadJson.getInt("connection_id"), payloadJson.getInt("document_id"), payloadJson.getString("diff")));
                 break;
             case "response":
-                Context.getMainContext().postEvent(new ResponseEvent(payloadJson.getInt("request_id"), payloadJson.getInt("code"), payloadJson.getJSONObject("body"), null));
+                JSONObject body = (payloadJson.has("body")) ?  payloadJson.getJSONObject("body") : null;
+                String error = (payloadJson.has("error")) ? payloadJson.getString("error") : null ;
+                Context.getMainContext().postEvent(new ResponseEvent(payloadJson.getInt("request_id"), payloadJson.getInt("code"), body, error));
                 break;
         }
     }
