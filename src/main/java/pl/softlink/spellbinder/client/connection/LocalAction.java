@@ -1,4 +1,4 @@
-package pl.softlink.spellbinder.client;
+package pl.softlink.spellbinder.client.connection;
 
 import org.json.JSONObject;
 import pl.softlink.spellbinder.client.connection.Request;

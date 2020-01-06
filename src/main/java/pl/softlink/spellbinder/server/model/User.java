@@ -3,6 +3,7 @@ package pl.softlink.spellbinder.server.model;
 import pl.softlink.spellbinder.server.JDBC;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -12,10 +13,29 @@ public class User extends Model{
     private String email;
     private String password;
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public static User findByEmail(String email) {
+        String sql = "SELECT * FROM `user` WHERE `email`=? LIMIT 1";
+
+        try {
+            PreparedStatement preparedStatement = JDBC.getConnection().prepareStatement(sql);
+            preparedStatement.setString (1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() == false) {
+                return null;
+            }
+
+            User user = new User(resultSet.getString("email"), resultSet.getString("password"), resultSet.getInt("id"));
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+//    public User(String email, String password) {
+//        this.email = email;
+//        this.password = password;
+//    }
 
     public User(String email, String password, int id) {
         this.password = password;

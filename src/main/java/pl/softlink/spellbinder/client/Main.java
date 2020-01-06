@@ -1,10 +1,8 @@
 package pl.softlink.spellbinder.client;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.softlink.spellbinder.client.connection.LocalAction;
 import pl.softlink.spellbinder.client.connection.RemoteActionRunnable;
 import pl.softlink.spellbinder.client.controller.FrontController;
 import pl.softlink.spellbinder.global.connection.Connection;

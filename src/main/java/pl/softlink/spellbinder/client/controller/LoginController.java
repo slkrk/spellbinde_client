@@ -27,7 +27,7 @@ public class LoginController extends ControllerAbstract {
     public void onRegisterClick(MouseEvent mouseEvent) {
         System.out.println("onRegisterClick");
 
-        HashMap<String, String> body = new HashMap<>();
+        HashMap<String, String> body = new HashMap<String, String>();
         body.put("email", emailTextField.getText());
         body.put("password", passwordTextField.getText());
 

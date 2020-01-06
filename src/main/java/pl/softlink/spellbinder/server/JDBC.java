@@ -10,7 +10,6 @@ public class JDBC {
     private JDBC() {
 
         try {
-
             try {
                 Class.forName(Config.DB_DRIVER).newInstance();
             } catch (Exception e) {

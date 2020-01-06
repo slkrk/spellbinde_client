@@ -1,5 +1,6 @@
 package pl.softlink.spellbinder.client;
 
+import pl.softlink.spellbinder.client.connection.LocalAction;
 import pl.softlink.spellbinder.client.controller.EditorController;
 import pl.softlink.spellbinder.client.controller.FrontController;
 import pl.softlink.spellbinder.client.event.*;
