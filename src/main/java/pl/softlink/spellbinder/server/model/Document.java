@@ -1,15 +1,17 @@
 package pl.softlink.spellbinder.server.model;
 
+import pl.softlink.spellbinder.global.security.Security;
 import pl.softlink.spellbinder.server.JDBC;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Random;
 
 public class Document extends Model{
 
     private Integer id = null;
-    private String content;
+    private String content = "";
     private String access_key;
 
     public Document(String content, String access_key, int id) {
@@ -18,8 +20,8 @@ public class Document extends Model{
         this.id = id;
     }
 
-    public Document(String access_key) {
-        this.access_key = access_key;
+    public Document() {
+        this.access_key = Security.md5(Integer.toString(new Random().nextInt(999999)));
     }
 
     public Integer getId() {
@@ -30,7 +32,7 @@ public class Document extends Model{
 
         String sql = "`document` SET";
         sql += " `content`=?";
-        sql += " `access_key`=?";
+        sql += ", `access_key`=?";
 
         if (isNew()) {
             sql = "INSERT INTO " + sql;
@@ -43,7 +45,7 @@ public class Document extends Model{
             preparedStatement.setString (1, this.content);
             preparedStatement.setString (2, this.access_key);
 
-            if (isNew()) {
+            if (! isNew()) {
                 preparedStatement.setInt(3, this.id);
             }
 

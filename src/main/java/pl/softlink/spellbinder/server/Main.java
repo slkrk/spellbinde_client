@@ -18,7 +18,7 @@ public class Main {
 
             ServerSocket serverSocket = new ServerSocket(Config.CONNECTION_PORT);
 
-            int currentDocumentId = 123;
+            int currentDocumentId = 1;
 
             while (true) {
                 System.out.println("Serwer: oczekiwanie na nowe połączenie.");

@@ -3,10 +3,10 @@ package pl.softlink.spellbinder.server.connection;
 import org.json.JSONObject;
 import pl.softlink.spellbinder.server.Context;
 import pl.softlink.spellbinder.global.event.PatchReceivedEvent;
+import pl.softlink.spellbinder.server.model.Document;
 import pl.softlink.spellbinder.server.model.User;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connection.RemoteActionRunnable {
 
@@ -36,11 +36,12 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
                 registerAction(requestJson);
                 break;
             case "login":
-
-
-
-
+                loginAction(requestJson);
                 break;
+            case "newDocument":
+                newDocumentAction(requestJson);
+                break;
+
         }
     }
 
@@ -63,7 +64,7 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
 
         } else {
             responseJson.put("code", 406);
-            responseJson.put("error", "Podany adres email jest już zarejestrowany.");
+            responseJson.put("error", "Podany adres email jest zajęty.");
         }
 
         String payloadString = responseJson.toString();
@@ -81,12 +82,37 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
         String password = body.getString("password");
         User existingUser = User.findByEmail(email);
 
-        if (existingUser == null || existingUser.getPassword() != password) {
+        if (existingUser == null || ! existingUser.getPassword().equals(password)) {
             responseJson.put("error", "Błędne dane logowania.");
             responseJson.put("code", 401);
         } else {
             responseJson.put("code", 200);
             connectionContainer.setUser(existingUser);
+        }
+
+        String payloadString = responseJson.toString();
+        connectionContainer.getConnection().push(payloadString);
+    }
+
+    private void newDocumentAction(JSONObject requestJson) {
+        JSONObject responseJson = new JSONObject();
+
+        responseJson.put("request_id", requestJson.getInt("request_id"));
+        responseJson.put("action", "response");
+
+        Document document = new Document();
+        document.save();
+
+        if (document == null) {
+            responseJson.put("error", "Nie udało się utworzyć dokumentu.");
+            responseJson.put("code", 400);
+        } else {
+            int documentId = document.getId();
+            HashMap<String, String> body = new HashMap<String, String>();
+            body.put("documentId", Integer.toString(documentId));
+            responseJson.put("body", body);
+            responseJson.put("code", 201);
+            connectionContainer.setCurrentDocumentId(documentId);
         }
 
         String payloadString = responseJson.toString();

@@ -9,8 +9,9 @@
       <Button layoutX="77.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#onRegisterClick" text="Zarejestruj" />
       <Label layoutX="55.0" layoutY="14.0" prefHeight="25.0" prefWidth="164.0" text="logowanie/rejestracja" />
       <Label layoutX="39.0" layoutY="39.0" prefHeight="25.0" prefWidth="164.0" text="email:" />
-      <TextField layoutX="39.0" layoutY="64.0" fx:id="emailTextField" />
+      <TextField fx:id="emailTextField" layoutX="39.0" layoutY="64.0" />
       <Label layoutX="39.0" layoutY="89.0" prefHeight="25.0" prefWidth="164.0" text="hasło:" />
-      <TextField layoutX="38.0" layoutY="114.0" fx:id="passwordTextField" />
+      <TextField fx:id="passwordTextField" layoutX="38.0" layoutY="114.0" />
+      <Label fx:id="loginErrorLabel" layoutX="13.0" layoutY="208.0" prefHeight="25.0" prefWidth="203.0" text="" textFill="#f80000" />
    </children>
 </Pane>

@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/global/connection/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/global/connection/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/ConnectionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/ConnectionContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/event/ResponseEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/event/ResponseEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/RemoteActionRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/RemoteActionRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/security/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/global/security/Security.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -126,7 +129,7 @@
       <recent name="C:\Users\fishkiller\IdeaProjects\spellbinder_client\target\classes\pl\softlink\spellbinder\client" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.client2">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -295,7 +298,13 @@
       <workItem from="1578240490819" duration="11572000" />
       <workItem from="1578307073971" duration="5309000" />
       <workItem from="1578312467932" duration="548000" />
-      <workItem from="1578313031313" duration="4549000" />
+      <workItem from="1578313031313" duration="4579000" />
+      <workItem from="1579113424083" duration="609000" />
+      <workItem from="1579116373869" duration="25000" />
+      <workItem from="1579117213208" duration="70000" />
+      <workItem from="1579118968088" duration="239000" />
+      <workItem from="1579119313015" duration="34000" />
+      <workItem from="1579462202432" duration="6348000" />
     </task>
     <servers />
   </component>
@@ -315,16 +324,16 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#Setter_Template/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576178227186" />
-    <state x="414" y="77" width="1092" height="793" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578312911341">
+    <state x="414" y="77" width="1092" height="793" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579116389951">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575915413054" />
-    <state x="414" y="77" width="1092" height="793" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578312911341" />
-    <state x="765" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1578321985658">
+    <state x="414" y="77" width="1092" height="793" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579116389951" />
+    <state x="765" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1579463276242">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="765" y="208" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191453612" />
-    <state x="765" y="208" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321985658" />
+    <state x="765" y="208" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579463276242" />
     <state x="689" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1575915408799">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -346,58 +355,63 @@
     </state>
     <state x="-764" y="381" width="607" height="595" key="#xdebugger.evaluate/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576188020100" />
     <state x="-1856" y="75" width="1648" height="874" key="#xdebugger.evaluate/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578315274840" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1575914689988">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1579119345442">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1575914689988" />
-    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1578321400484">
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579119345442" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1579468559428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894995" />
-    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559428" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545132" />
-    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1578321400484">
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1579468559428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894995" />
-    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559428" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545132" />
-    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1578321400484">
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1579468559428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894995" />
-    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559428" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545132" />
-    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1578321400484">
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1579468559428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894995" />
-    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559428" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545132" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1578321400484">
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1579468559426">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894990" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559426" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545130" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1578321400484">
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1579468559426">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894990" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559426" />
     <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545130" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1578321400484">
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1579468559426">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894990" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559426" />
     <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545130" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1578321400484">
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1579468559426">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191894990" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321400484" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579468559426" />
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1575921545130" />
+    <state x="625" y="223" key="NewModule_or_Project.wizard" timestamp="1579119207337">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="625" y="223" key="NewModule_or_Project.wizard/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579119207337" />
     <state x="440" y="99" key="SettingsEditor" timestamp="1578313262489">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -415,11 +429,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="522" y="260" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1577923504922" />
-    <state x="357" y="122" width="1119" height="789" key="find.popup" timestamp="1578321190410">
+    <state x="357" y="122" width="1119" height="789" key="find.popup" timestamp="1579466488358">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="657" y="130" width="606" height="789" key="find.popup/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1576191193300" />
-    <state x="357" y="122" width="1119" height="789" key="find.popup/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1578321190410" />
+    <state x="357" y="122" width="1119" height="789" key="find.popup/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1579466488358" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1578313720597">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -431,28 +445,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java</url>
-          <line>11</line>
+          <line>32</line>
           <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/LoginController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/JDBC.java</url>
           <line>15</line>
           <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java</url>
@@ -463,6 +462,51 @@
           <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/model/User.java</url>
           <line>77</line>
           <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/RemoteActionRunnable.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/RemoteActionRunnable.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/RemoteActionRunnable.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/server/connection/RemoteActionRunnable.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/softlink/spellbinder/client/controller/MainController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

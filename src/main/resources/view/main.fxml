@@ -12,6 +12,7 @@
       <Button layoutX="98.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#onLogoutClick" text="Wyloguj się" />
       <Label layoutX="55.0" layoutY="14.0" prefHeight="25.0" prefWidth="164.0" text="Menu" />
       <Label layoutX="55.0" layoutY="39.0" prefHeight="25.0" prefWidth="164.0" text="Zalogowany jako:" />
-      <Label layoutX="55.0" layoutY="64.0" prefHeight="25.0" prefWidth="164.0" text="xxx@example.com" />
+      <Label fx:id="currentUserEmailLabel" layoutX="55.0" layoutY="64.0" prefHeight="25.0" prefWidth="164.0" text="xxx@example.com" />
+      <Label fx:id="mainMenuErrorLabel" layoutX="29.0" layoutY="207.0" prefHeight="25.0" prefWidth="202.0" text="xxx" textFill="#f20a0a" />
    </children>
 </Pane>

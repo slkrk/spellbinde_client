@@ -29,6 +29,10 @@ public class ResponseEvent extends Event {
         return code;
     }
 
+    public String getError() {
+        return error;
+    }
+
     public JSONObject getPayload() {
         return body;
     }

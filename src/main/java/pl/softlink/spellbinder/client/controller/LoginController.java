@@ -1,6 +1,7 @@
 package pl.softlink.spellbinder.client.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -20,8 +21,31 @@ public class LoginController extends ControllerAbstract {
     private TextField passwordTextField;
 
     @FXML
+    private Label loginErrorLabel;
+
+    @FXML
     public void onLoginClick(MouseEvent mouseEvent) {
         System.out.println("onLoginClick");
+
+        HashMap<String, String> body = new HashMap<String, String>();
+        String email = emailTextField.getText();
+        body.put("email", email);
+        body.put("password", Security.md5(passwordTextField.getText()));
+
+        Request request = new Request("login", body);
+
+        ResponseEvent response = Request.sendRequest(request);
+
+        int responseCode = response.getCode();
+
+        switch (responseCode) {
+            case 200:
+                getContext().setCurrentUserEmail(email);
+                getContext().getFrontController().loadMain();
+                break;
+            default:
+                loginErrorLabel.setText(response.getError());
+        }
     }
 
     @FXML
@@ -29,15 +53,24 @@ public class LoginController extends ControllerAbstract {
         System.out.println("onRegisterClick");
 
         HashMap<String, String> body = new HashMap<String, String>();
-        body.put("email", emailTextField.getText());
+        String email = emailTextField.getText();
+        body.put("email", email);
         body.put("password", Security.md5(passwordTextField.getText()));
 
         Request request = new Request("register", body);
 
         ResponseEvent response = Request.sendRequest(request);
 
-        System.out.println(response.getCode());
+        int responseCode = response.getCode();
 
+        switch (responseCode) {
+            case 201:
+                getContext().setCurrentUserEmail(email);
+                getContext().getFrontController().loadMain();
+                break;
+            default:
+                loginErrorLabel.setText(response.getError());
+        }
 
     }
 }
