@@ -21,45 +21,57 @@ public class FrontController {
 
     public FrontController(Stage stage) {
         this.stage = stage;
+        stage.setResizable(false);
         this.stage.setTitle("SpellBinder");
     }
 
     public void loadMain() {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource( "/view/main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
     public void loadEditor() {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource( "/view/editor.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/view/editor.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         stage.setTitle("SpellBinder - editor: " + Context.getMainContext().getCurrentDocument().getDocumentId());
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
     public void loadLogin() {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource( "/view/login.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
+    public void loadList() {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/view/list.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
 }

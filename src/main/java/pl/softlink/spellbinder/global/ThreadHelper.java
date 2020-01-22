@@ -2,7 +2,7 @@ package pl.softlink.spellbinder.global;
 
 public class ThreadHelper {
 
-    public static final int DEFAULT_SLEEP_MILIS = 100;
+    public static final int DEFAULT_SLEEP_MILIS = 10;
 
     public static void sleep() {
         sleep(DEFAULT_SLEEP_MILIS);

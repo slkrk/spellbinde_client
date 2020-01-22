@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import pl.softlink.spellbinder.client.Context;
+import pl.softlink.spellbinder.client.User;
 import pl.softlink.spellbinder.client.connection.Request;
 import pl.softlink.spellbinder.client.event.ResponseEvent;
 import pl.softlink.spellbinder.global.security.Security;
@@ -40,7 +41,13 @@ public class LoginController extends ControllerAbstract {
 
         switch (responseCode) {
             case 200:
-                getContext().setCurrentUserEmail(email);
+                getContext().setUser(
+                    new User(
+                        response.getPayload().getInt("id"),
+                        response.getPayload().getString("email")
+                    )
+                );
+
                 getContext().getFrontController().loadMain();
                 break;
             default:
@@ -65,7 +72,13 @@ public class LoginController extends ControllerAbstract {
 
         switch (responseCode) {
             case 201:
-                getContext().setCurrentUserEmail(email);
+                getContext().setUser(
+                    new User(
+                        response.getPayload().getInt("id"),
+                        response.getPayload().getString("email")
+                    )
+                );
+                
                 getContext().getFrontController().loadMain();
                 break;
             default:

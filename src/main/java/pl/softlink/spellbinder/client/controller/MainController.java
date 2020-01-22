@@ -60,8 +60,13 @@ public class MainController extends ControllerAbstract {
     @FXML
     public void onOpenClick(MouseEvent mouseEvent) {
         System.out.println("onOpenClick");
-        Document document = new Document(1);
-        getContext().setCurrentDocument(document);
-        getFrontController().loadEditor();
+
+        getContext().getFrontController().loadList();
+
+
+
+//        Document document = new Document(1);
+//        getContext().setCurrentDocument(document);
+//        getFrontController().loadEditor();
     }
 }

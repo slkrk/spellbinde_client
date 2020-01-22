@@ -17,7 +17,7 @@ public class Context implements pl.softlink.spellbinder.global.Context {
     private EventDispatcher eventDispatcher = new EventDispatcher();
 
     private Document currentDocument = null;
-    private String currentUserEmail = null;
+    private User user = null;
     private EditorController editorController = null;
     private LocalAction localAction = null;
     private Connection connection;
@@ -88,12 +88,12 @@ public class Context implements pl.softlink.spellbinder.global.Context {
         return this;
     }
 
-    public String getCurrentUserEmail() {
-        return currentUserEmail;
+    public User getUser() {
+        return user;
     }
 
-    public Context setCurrentUserEmail(String currentUserEmail) {
-        this.currentUserEmail = currentUserEmail;
+    public Context setUser(User user) {
+        this.user = user;
         return this;
     }
 }
