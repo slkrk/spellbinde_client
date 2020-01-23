@@ -10,8 +10,11 @@ import pl.softlink.spellbinder.service.TextDiff;
 
 public class Document extends pl.softlink.spellbinder.global.Document implements EventListener<Event> {
 
-    public Document(int documentId) {
+    private String name;
+
+    public Document(int documentId, String name) {
         super(documentId);
+        this.name = name;
     }
 
     public <T extends Event> void onEvent(T event) {
@@ -41,6 +44,10 @@ public class Document extends pl.softlink.spellbinder.global.Document implements
         String diff = event.getDiff();
         patch(diff);
         Context.getMainContext().postEvent(new DocumentChangedRemotelyEvent(event.getConnectionId(),this, diff));
+    }
+
+    public String getDocumentName() {
+        return name;
     }
 
 }

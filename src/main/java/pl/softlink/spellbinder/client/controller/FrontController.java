@@ -45,7 +45,7 @@ public class FrontController {
             e.printStackTrace();
         }
 
-        stage.setTitle("SpellBinder - editor: " + Context.getMainContext().getCurrentDocument().getDocumentId());
+        stage.setTitle("SpellBinder - editor: " + Context.getMainContext().getCurrentDocument().getDocumentName() + " (id: " + Context.getMainContext().getCurrentDocument().getDocumentId() + ")");
         stage.setScene(new Scene(root));
         stage.show();
     }

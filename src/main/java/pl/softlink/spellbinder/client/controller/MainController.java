@@ -25,7 +25,7 @@ public class MainController extends ControllerAbstract {
     private Label mainMenuErrorLabel;
 
     public void initialize(){
-        currentUserEmailLabel.setText(getContext().getCurrentUserEmail());
+        currentUserEmailLabel.setText(getContext().getUser().getEmail());
     }
 
     @FXML
@@ -38,6 +38,7 @@ public class MainController extends ControllerAbstract {
         System.out.println("onNewClick");
 
         HashMap<String, String> body = new HashMap<String, String>();
+        body.put("name", "NewDocument");
 
         Request request = new Request("newDocument", body);
 
@@ -47,7 +48,7 @@ public class MainController extends ControllerAbstract {
 
         switch (responseCode) {
             case 201:
-                Document document = new Document(response.getPayload().getInt("documentId"));
+                Document document = new Document(response.getPayload().getInt("documentId"), response.getPayload().getString("documentName"));
                 getContext().setCurrentDocument(document);
                 getContext().getFrontController().loadEditor();
                 break;

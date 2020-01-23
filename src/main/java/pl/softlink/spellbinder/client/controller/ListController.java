@@ -5,11 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import pl.softlink.spellbinder.client.Document;
 import pl.softlink.spellbinder.client.connection.Request;
 import pl.softlink.spellbinder.client.event.ResponseEvent;
 import pl.softlink.spellbinder.global.security.Security;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ListController extends ControllerAbstract {
 
@@ -17,58 +22,64 @@ public class ListController extends ControllerAbstract {
     private ListView listListView;
 
     public void initialize() {
-
-//        ListView<Button> listView = new ListView();
-
-
-
-
         HashMap<String, String> body = new HashMap<String, String>();
-
-//        body.put("email", email);
-//        body.put("password", Security.md5(passwordTextField.getText()));
-
-        body.put("userId", getContext().getUser().getId().toString());
-        Request request = new Request("getDocumentList", body);
-
+        Request request = new Request("documentList", body);
         ResponseEvent response = Request.sendRequest(request);
-
         int responseCode = response.getCode();
 
         switch (responseCode) {
             case 200:
 
+                JSONObject documentMapJson = response.getPayload();
+                Map<String, ?> documentMap = documentMapJson.toMap();
 
+                Iterator hmIterator = documentMap.entrySet().iterator();
 
+                ObservableList<Button> items = FXCollections.observableArrayList();
 
+                while (hmIterator.hasNext()) {
+                    Map.Entry mapElement = (Map.Entry) hmIterator.next();
+
+                    final String documentId = (String) mapElement.getKey();
+                    final String documentName = (String) mapElement.getValue();
+
+                    Button button = new Button();
+                    button.setText("Id: " + documentId + "; nazwa: " + documentName);
+
+                    button.setOnMouseClicked(mouseEvent -> {
+                        System.out.println("Clicked button. documentId: " + documentId + "; documentName: " + documentName);
+                        Document document = new Document(Integer.parseInt(documentId), documentName);
+                        if (requestDocumentOpen(document)) {
+                            getContext().setCurrentDocument(document);
+                            getContext().getFrontController().loadEditor();
+                        }
+                    });
+
+                    items.add(button);
+                }
+
+                listListView.setItems(items);
 
                 break;
             default:
+                throw new RuntimeException("Document open failure. Code: " + response.getCode() + "; error: " + response.getError());
 //                loginErrorLabel.setText(response.getError());
         }
-
-
-
-
-
-        ObservableList<Button> items = FXCollections.observableArrayList();
-
-        for (int i = 0; i < 10; i++) {
-
-            Button button = new Button();
-            button.setText("Button " + i);
-            final int j = i;
-            button.setOnMouseClicked(mouseEvent -> {System.out.println("Clicked button " + j);});
-
-            items.add(button);
-
-
-
-        }
-
-        listListView.setItems(items);
-
     }
 
+    private boolean requestDocumentOpen(Document document) {
+        HashMap<String, String> body = new HashMap<String, String>();
+        body.put("documentId", document.getDocumentId().toString());
+        Request request = new Request("openDocument", body);
+        ResponseEvent response = Request.sendRequest(request);
+        int responseCode = response.getCode();
+
+        switch (responseCode) {
+            case 200:
+                return true;
+            default:
+                throw new RuntimeException("Document server open failure. Code: " + response.getCode() + "; error: " + response.getError());
+        }
+    }
 
 }

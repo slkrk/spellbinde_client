@@ -33,10 +33,6 @@ public class Main extends Application {
         Context context = new Context();
         Context.setMainContext(context);
 
-        Document document = new Document(123);
-
-        context.setCurrentDocument(document);
-
         Socket socket = null;
 
         try {

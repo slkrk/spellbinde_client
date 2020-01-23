@@ -33,7 +33,8 @@ public class Document {
         }
     }
 
-    public int getDocumentId() {
+    public Integer getDocumentId() {
         return documentId;
     }
+
 }

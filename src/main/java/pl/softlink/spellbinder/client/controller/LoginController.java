@@ -43,7 +43,7 @@ public class LoginController extends ControllerAbstract {
             case 200:
                 getContext().setUser(
                     new User(
-                        response.getPayload().getInt("id"),
+                        response.getPayload().getInt("userId"),
                         response.getPayload().getString("email")
                     )
                 );
@@ -74,7 +74,7 @@ public class LoginController extends ControllerAbstract {
             case 201:
                 getContext().setUser(
                     new User(
-                        response.getPayload().getInt("id"),
+                        response.getPayload().getInt("userid"),
                         response.getPayload().getString("email")
                     )
                 );
