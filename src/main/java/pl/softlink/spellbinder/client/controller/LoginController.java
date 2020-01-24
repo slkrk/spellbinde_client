@@ -30,6 +30,12 @@ public class LoginController extends ControllerAbstract {
 
         HashMap<String, String> body = new HashMap<String, String>();
         String email = emailTextField.getText();
+
+        if (email.length() < 1) {
+            loginErrorLabel.setText("Pole email nie może być puste");
+            return;
+        }
+
         body.put("email", email);
         body.put("password", Security.md5(passwordTextField.getText()));
 
@@ -61,6 +67,12 @@ public class LoginController extends ControllerAbstract {
 
         HashMap<String, String> body = new HashMap<String, String>();
         String email = emailTextField.getText();
+
+        if (email.length() < 1) {
+            loginErrorLabel.setText("Pole email nie może być puste");
+            return;
+        }
+
         body.put("email", email);
         body.put("password", Security.md5(passwordTextField.getText()));
 

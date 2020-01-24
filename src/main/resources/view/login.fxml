@@ -3,15 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.softlink.spellbinder.client.controller.LoginController">
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.softlink.spellbinder.client.controller.LoginController">
    <children>
-      <Button layoutX="85.0" layoutY="144.0" mnemonicParsing="false" onMouseClicked="#onLoginClick" text="Zaloguj" />
-      <Button layoutX="77.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#onRegisterClick" text="Zarejestruj" />
-      <Label layoutX="55.0" layoutY="14.0" prefHeight="25.0" prefWidth="164.0" text="logowanie/rejestracja" />
-      <Label layoutX="39.0" layoutY="39.0" prefHeight="25.0" prefWidth="164.0" text="email:" />
-      <TextField fx:id="emailTextField" layoutX="39.0" layoutY="64.0" />
-      <Label layoutX="39.0" layoutY="89.0" prefHeight="25.0" prefWidth="164.0" text="hasło:" />
-      <TextField fx:id="passwordTextField" layoutX="38.0" layoutY="114.0" />
-      <Label fx:id="loginErrorLabel" layoutX="13.0" layoutY="208.0" prefHeight="25.0" prefWidth="203.0" text="" textFill="#f80000" />
+      <Button layoutX="11.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#onLoginClick" prefWidth="200.0" text="Zaloguj" />
+      <Button layoutX="11.0" layoutY="183.0" mnemonicParsing="false" onMouseClicked="#onRegisterClick" prefWidth="200.0" text="Zarejestruj" />
+      <Label layoutX="13.0" layoutY="14.0" prefHeight="25.0" prefWidth="164.0" text="Logowanie / Rejestracja" />
+      <Label layoutX="13.0" layoutY="39.0" prefHeight="25.0" prefWidth="164.0" text="email:" />
+      <TextField fx:id="emailTextField" layoutX="11.0" layoutY="64.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label layoutX="13.0" layoutY="89.0" prefHeight="25.0" prefWidth="164.0" text="hasło:" />
+      <TextField fx:id="passwordTextField" layoutX="11.0" layoutY="114.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label fx:id="loginErrorLabel" layoutX="14.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" text="" textFill="#f80000" />
    </children>
 </Pane>

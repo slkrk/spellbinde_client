@@ -4,7 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import pl.softlink.spellbinder.client.Document;
@@ -20,6 +22,9 @@ public class ListController extends ControllerAbstract {
 
     @FXML
     private ListView listListView;
+
+    @FXML
+    protected Label infoLabel;
 
     public void initialize() {
         HashMap<String, String> body = new HashMap<String, String>();
@@ -44,16 +49,10 @@ public class ListController extends ControllerAbstract {
                     final String documentName = (String) mapElement.getValue();
 
                     Button button = new Button();
-                    button.setText("Id: " + documentId + "; nazwa: " + documentName);
+                    button.setPrefSize(500, button.getPrefHeight());
+                    button.setText(getButtonText(documentId, documentName));
 
-                    button.setOnMouseClicked(mouseEvent -> {
-                        System.out.println("Clicked button. documentId: " + documentId + "; documentName: " + documentName);
-                        Document document = new Document(Integer.parseInt(documentId), documentName);
-                        if (requestDocumentOpen(document)) {
-                            getContext().setCurrentDocument(document);
-                            getContext().getFrontController().loadEditor();
-                        }
-                    });
+                    button.setOnMouseClicked(mouseEvent -> buttonCallback(documentId, documentName));
 
                     items.add(button);
                 }
@@ -62,8 +61,21 @@ public class ListController extends ControllerAbstract {
 
                 break;
             default:
-                throw new RuntimeException("Document open failure. Code: " + response.getCode() + "; error: " + response.getError());
-//                loginErrorLabel.setText(response.getError());
+                infoLabel.setText("Nie udało się otworzyć dokumentu: " + response.getError());
+                infoLabel.setStyle(STYLE_ERROR);
+        }
+    }
+
+    protected String getButtonText(String documentId, String documentName) {
+        return "Otwórz dokument: Id: " + documentId + "; nazwa: " + documentName;
+    }
+
+    protected void buttonCallback(String documentId, String documentName) {
+        System.out.println("Clicked button. documentId: " + documentId + "; documentName: " + documentName);
+        Document document = new Document(Integer.parseInt(documentId), documentName);
+        if (requestDocumentOpen(document)) {
+            getContext().setCurrentDocument(document);
+            getContext().getFrontController().loadEditor();
         }
     }
 
@@ -81,6 +93,10 @@ public class ListController extends ControllerAbstract {
             default:
                 throw new RuntimeException("Document server open failure. Code: " + response.getCode() + "; error: " + response.getError());
         }
+    }
+
+    public void exitClicked(MouseEvent mouseEvent) {
+        getFrontController().loadMain();
     }
 
 }

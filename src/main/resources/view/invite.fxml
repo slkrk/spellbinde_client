@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.softlink.spellbinder.client.controller.InviteController">
+   <children>
+      <Label fx:id="inviteEmailLabel" layoutX="14.0" layoutY="14.0" text="Wprowadź email zapraszanego użytkownika:" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="39.0" prefHeight="415.0" prefWidth="640.0">
+         <content>
+            <ListView fx:id="listListView" prefHeight="305.0" prefWidth="638.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="inviteEmailTextField" layoutX="261.0" layoutY="10.0" prefHeight="25.0" prefWidth="294.0" />
+      <Button layoutX="574.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#exitClicked" text="Wyjdź" />
+      <Label fx:id="infoLabel" layoutX="12.0" layoutY="458.0" prefHeight="17.0" prefWidth="617.0" text="" />
+   </children>
+</Pane>

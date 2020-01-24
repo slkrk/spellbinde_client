@@ -52,8 +52,35 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
             case "changeName":
                 changeNameAction(requestJson);
                 break;
+            case "invite":
+                inviteAction(requestJson);
+                break;
 
         }
+    }
+
+    private void inviteAction(JSONObject requestJson) {
+        Response response = new Response(requestJson);
+
+        JSONObject body = requestJson.getJSONObject("body");
+        Integer documentId = body.getInt("documentId");
+        String email = body.getString("email");
+
+        Document document = Document.findById(documentId);
+        User user = User.findByEmail(email);
+
+        if (user == null) {
+            response.put("code", 406);
+            response.put("error", "Podany adres email nie istnieje.");
+        } else if (document.addUser(user)) {
+            response.put("code", 200);
+        } else {
+            response.put("code", 409);
+            response.put("error", "Użytkownij został już wcześniej dodany.");
+        }
+
+        String payloadString = response.toString();
+        connectionContainer.getConnection().push(payloadString);
     }
 
     private void changeNameAction(JSONObject requestJson) {

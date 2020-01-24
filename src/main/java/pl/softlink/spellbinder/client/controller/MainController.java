@@ -3,20 +3,12 @@ package pl.softlink.spellbinder.client.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import pl.softlink.spellbinder.client.Context;
 import pl.softlink.spellbinder.client.Document;
 import pl.softlink.spellbinder.client.connection.Request;
 import pl.softlink.spellbinder.client.event.ResponseEvent;
-import pl.softlink.spellbinder.global.security.Security;
-
-import java.awt.*;
 import java.util.HashMap;
 
 public class MainController extends ControllerAbstract {
-
-//    @FXML
-//    private Label currentUserEmailLabel;
 
     @FXML
     private Label currentUserEmailLabel;
@@ -53,7 +45,7 @@ public class MainController extends ControllerAbstract {
             case 201:
                 Document document = new Document(response.getPayload().getInt("documentId"), response.getPayload().getString("documentName"));
                 getContext().setCurrentDocument(document);
-                getContext().getFrontController().loadEditor();
+                getFrontController().loadEditor();
                 break;
             default:
                 mainMenuErrorLabel.setText(response.getError());
@@ -64,13 +56,11 @@ public class MainController extends ControllerAbstract {
     @FXML
     public void onOpenClick(MouseEvent mouseEvent) {
         System.out.println("onOpenClick");
+        getFrontController().loadList();
 
-        getContext().getFrontController().loadList();
+    }
 
-
-
-//        Document document = new Document(1);
-//        getContext().setCurrentDocument(document);
-//        getFrontController().loadEditor();
+    public void onInviteClick(MouseEvent mouseEvent) {
+        getFrontController().loadInvite();
     }
 }

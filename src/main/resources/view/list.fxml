@@ -5,11 +5,13 @@
 
 <Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.softlink.spellbinder.client.controller.ListController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Wybierz dokument" />
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="39.0" prefHeight="444.0" prefWidth="640.0">
+      <Label layoutX="14.0" layoutY="14.0" text="Wybierz dokument:" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="39.0" prefHeight="418.0" prefWidth="640.0">
          <content>
-            <ListView fx:id="listListView" prefHeight="400.0" prefWidth="692.0" />
+            <ListView fx:id="listListView" prefHeight="381.0" prefWidth="638.0" />
          </content>
       </ScrollPane>
+      <Button layoutX="574.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#exitClicked" text="Wyjdź" />
+      <Label  fx:id="infoLabel" layoutX="14.0" layoutY="458.0" prefHeight="17.0" prefWidth="617.0" text="" />
    </children>
 </Pane>

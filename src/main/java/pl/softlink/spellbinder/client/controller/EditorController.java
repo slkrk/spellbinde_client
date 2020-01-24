@@ -1,6 +1,7 @@
 package pl.softlink.spellbinder.client.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -25,12 +26,17 @@ public class EditorController extends ControllerAbstract implements EventListene
     @FXML
     private TextField documentName;
 
+    @FXML
+    private Label documentId;
+
     public EditorController() {
         super();
         getContext().setEditorController(this);
     }
 
     public void initialize() {
+        documentId.setText(getContext().getCurrentDocument().getDocumentId().toString());
+        documentName.setText(getContext().getCurrentDocument().getDocumentName());
         ((TextArea) root.getChildren().get(0)).setText(getContext().getCurrentDocument().getContent());
     }
 

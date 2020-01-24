@@ -15,18 +15,15 @@ public class Document extends Model {
     private Integer id = null;
     private String content = "";
     private String name = "";
-    private String access_key;
 
-    public Document(String content, String access_key, int id, String name) {
+    public Document(String content, int id, String name) {
         this.content = content;
-        this.access_key = access_key;
         this.id = id;
         this.name = name;
     }
 
     public Document(String name) {
         this.name = name;
-        this.access_key = Security.md5(Integer.toString(new Random().nextInt(999999)));
     }
 
     public Integer getId() {
@@ -37,7 +34,6 @@ public class Document extends Model {
 
         String sql = "`document` SET";
         sql += " `content`=?";
-        sql += ", `access_key`=?";
         sql += ", `name`=?";
 
         if (isNew()) {
@@ -49,11 +45,10 @@ public class Document extends Model {
         try {
             PreparedStatement preparedStatement = JDBC.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, this.content);
-            preparedStatement.setString(2, this.access_key);
-            preparedStatement.setString(3, this.name);
+            preparedStatement.setString(2, this.name);
 
             if (!isNew()) {
-                preparedStatement.setInt(4, this.id);
+                preparedStatement.setInt(3, this.id);
             }
 
             preparedStatement.executeUpdate();
@@ -79,14 +74,14 @@ public class Document extends Model {
                 return null;
             }
 
-            Document document = new Document(resultSet.getString("content"), resultSet.getString("access_key"), resultSet.getInt("id"), resultSet.getString("name"));
+            Document document = new Document(resultSet.getString("content"), resultSet.getInt("id"), resultSet.getString("name"));
             return document;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void addUser(User user) {
+    public boolean addUser(User user) {
 
         String sql = "insert into `user_document` SET `user_id`=?, `document_id`=?";
         try {
@@ -94,8 +89,9 @@ public class Document extends Model {
             preparedStatement.setInt(1, user.getId());
             preparedStatement.setInt(2, this.id);
             preparedStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
-            throw new RuntimeException("sql error with statement: " + sql, e);
+            return false;
         }
     }
 
@@ -112,7 +108,7 @@ public class Document extends Model {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next() != false) {
-                Document document = new Document(resultSet.getString("content"), resultSet.getString("access_key"), resultSet.getInt("id"), resultSet.getString("name"));
+                Document document = new Document(resultSet.getString("content"), resultSet.getInt("id"), resultSet.getString("name"));
                 documentList.add(document);
             }
 

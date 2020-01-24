@@ -26,56 +26,36 @@ public class FrontController {
     }
 
     public void loadMain() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        stage.setScene(new Scene(root));
-        stage.show();
+        load("/view/main.fxml");
     }
 
     public void loadEditor() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/view/editor.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        stage.setTitle("SpellBinder - editor: " + Context.getMainContext().getCurrentDocument().getDocumentName() + " (id: " + Context.getMainContext().getCurrentDocument().getDocumentId() + ")");
-        stage.setScene(new Scene(root));
-        stage.show();
+        load("/view/editor.fxml");
     }
 
     public void loadLogin() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        stage.setScene(new Scene(root));
-        stage.show();
+        load("/view/login.fxml");
     }
 
     public void loadList() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/view/list.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        load("/view/list.fxml");
+    }
 
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void loadInvite() {
+        load("/view/invite.fxml");
     }
 
     private void load(String resourcePath) {
 
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(resourcePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 }
