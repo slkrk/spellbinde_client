@@ -54,122 +54,100 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
     }
 
     private void openDocumentAction(JSONObject requestJson) {
-        JSONObject responseJson = new JSONObject();
 
-        responseJson.put("request_id", requestJson.getInt("request_id"));
-        responseJson.put("action", "response");
+        Response response = new Response(requestJson);
+
         JSONObject body = requestJson.getJSONObject("body");
-        Integer documentId =  body.getInt("documentId");
+        Integer documentId = body.getInt("documentId");
         connectionContainer.setCurrentDocumentId(documentId);
-        responseJson.put("code", 200);
-        String payloadString = responseJson.toString();
+        response.put("code", 200);
+        String payloadString = response.toString();
         connectionContainer.getConnection().push(payloadString);
     }
 
     private void registerAction(JSONObject requestJson) {
-        JSONObject responseJson = new JSONObject();
-
-        responseJson.put("request_id", requestJson.getInt("request_id"));
-        responseJson.put("action", "response");
 
         JSONObject body = requestJson.getJSONObject("body");
         String email = body.getString("email");
         String password = body.getString("password");
         User existingUser = User.findByEmail(email);
 
+        Response response = new Response(requestJson);
+
         if (existingUser == null) {
-            HashMap<String, String> responseBody = new HashMap<String, String>();
             User user = new User(email, password);
             user.save();
-            responseBody.put("email", user.getEmail());
-            responseBody.put("userId", user.getId().toString());
-            responseJson.put("body", responseBody);
-            responseJson.put("code", 201);
+            response.put("email", user.getEmail());
+            response.put("userId", user.getId().toString());
+            response.put("code", 201);
             connectionContainer.setUser(user);
 
         } else {
-            responseJson.put("code", 406);
-            responseJson.put("error", "Podany adres email jest zajęty.");
+            response.put("code", 406);
+            response.put("error", "Podany adres email jest zajęty.");
         }
 
-        String payloadString = responseJson.toString();
+        String payloadString = response.toString();
         connectionContainer.getConnection().push(payloadString);
     }
 
     private void loginAction(JSONObject requestJson) {
-        JSONObject responseJson = new JSONObject();
-
-        responseJson.put("request_id", requestJson.getInt("request_id"));
-        responseJson.put("action", "response");
-
+        Response response = new Response(requestJson);
         JSONObject body = requestJson.getJSONObject("body");
         String email = body.getString("email");
         String password = body.getString("password");
         User existingUser = User.findByEmail(email);
 
         if (existingUser == null || !existingUser.getPassword().equals(password)) {
-            responseJson.put("code", 401);
+            response.put("code", 401);
         } else {
             HashMap<String, String> responseBody = new HashMap<String, String>();
-            responseBody.put("email", existingUser.getEmail());
-            responseBody.put("userId", existingUser.getId().toString());
-            responseJson.put("body", responseBody);
-            responseJson.put("error", "Błędne dane logowania.");
-            responseJson.put("code", 200);
+            response.putBody("email", existingUser.getEmail());
+            response.putBody("userId", existingUser.getId().toString());
+            response.put("error", "Błędne dane logowania.");
+            response.put("code", 200);
             connectionContainer.setUser(existingUser);
         }
 
-        String payloadString = responseJson.toString();
+        String payloadString = response.toString();
         connectionContainer.getConnection().push(payloadString);
     }
 
     private void newDocumentAction(JSONObject requestJson) {
-        JSONObject responseJson = new JSONObject();
-
-        responseJson.put("request_id", requestJson.getInt("request_id"));
-        responseJson.put("action", "response");
-
+        Response response = new Response(requestJson);
         JSONObject body = requestJson.getJSONObject("body");
         Document document = new Document(body.getString("name"));
         document.save();
         document.addUser(connectionContainer.getUser());
 
         if (document == null) {
-            responseJson.put("error", "Nie udało się utworzyć dokumentu.");
-            responseJson.put("code", 400);
+            response.put("error", "Nie udało się utworzyć dokumentu.");
+            response.put("code", 400);
         } else {
             int documentId = document.getId();
             HashMap<String, String> responseBody = new HashMap<String, String>();
-            responseBody.put("documentId", Integer.toString(documentId));
-            responseBody.put("documentName", document.getName());
-            responseJson.put("body", responseBody);
-            responseJson.put("code", 201);
+            response.putBody("documentId", Integer.toString(documentId));
+            response.putBody("documentName", document.getName());
+            response.put("code", 201);
             connectionContainer.setCurrentDocumentId(documentId);
         }
 
-        String payloadString = responseJson.toString();
+        String payloadString = response.toString();
         connectionContainer.getConnection().push(payloadString);
     }
 
     private void documentListAction(JSONObject requestJson) {
-        JSONObject responseJson = new JSONObject();
-
-        responseJson.put("request_id", requestJson.getInt("request_id"));
-        responseJson.put("action", "response");
+        Response response = new Response(requestJson);
 
         LinkedList<Document> documentList = Document.getListForUser(connectionContainer.getUser());
 
-        HashMap<String, String> documentMap = new HashMap<>();
-
         for (Document document : documentList) {
-
-            documentMap.put(document.getId().toString(), document.getName());
+            response.putBody(document.getId().toString(), document.getName());
         }
 
-        responseJson.put("body", documentMap);
-        responseJson.put("code", 200);
+        response.put("code", 200);
 
-        String payloadString = responseJson.toString();
+        String payloadString = response.toString();
         connectionContainer.getConnection().push(payloadString);
     }
 
