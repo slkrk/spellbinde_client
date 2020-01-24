@@ -74,4 +74,8 @@ public class FrontController {
         stage.show();
     }
 
+    private void load(String resourcePath) {
+
+    }
+
 }

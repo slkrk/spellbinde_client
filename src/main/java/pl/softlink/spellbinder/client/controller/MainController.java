@@ -31,6 +31,9 @@ public class MainController extends ControllerAbstract {
     @FXML
     public void onLogoutClick(MouseEvent mouseEvent) {
         System.out.println("onLogoutClick");
+        getContext().setUser(null);
+        getContext().getConnection().shutdown();
+        getFrontController().loadLogin();
     }
 
     @FXML
