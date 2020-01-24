@@ -3,21 +3,19 @@ package pl.softlink.spellbinder.global.connection;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Random;
+import java.util.concurrent.*;
 
-public class Connection {
+public class Connection extends ThreadPoolExecutor {
 
     private Socket socket;
 
     private PushRunnable pushRunnable;
     private PullRunnable pullRunnable;
     private RemoteActionRunnable remoteActionRunnable;
-
-    private Thread pushThread;
-    private Thread pullThread;
-    private Thread remoteActionThread;
     private int connectionId;
 
     public Connection(Socket socket, RemoteActionRunnable remoteActionRunnable) {
+        super(3, 3, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<>(3));
 
         try {
             connectionId = new Random().nextInt(99999);
@@ -25,10 +23,8 @@ public class Connection {
             this.socket = socket;
             pushRunnable = new PushRunnable(this.socket);
             pullRunnable = new PullRunnable(this.socket);
+            pullRunnable.setConnection(this);
             this.remoteActionRunnable.setPullConnection(this);
-            pushThread = new Thread(pushRunnable);
-            pullThread = new Thread(pullRunnable);
-            remoteActionThread = new Thread(remoteActionRunnable);
         } catch (Exception e) {
             try {
                 socket.close();
@@ -44,9 +40,15 @@ public class Connection {
     }
 
     public void start() {
-        pushThread.start();
-        pullThread.start();
-        remoteActionThread.start();
+
+        try {
+            execute(pushRunnable);
+            execute(pullRunnable);
+            execute(remoteActionRunnable);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void close() {

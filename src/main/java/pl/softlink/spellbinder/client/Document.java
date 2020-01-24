@@ -17,6 +17,11 @@ public class Document extends pl.softlink.spellbinder.global.Document implements
         this.name = name;
     }
 
+    @Override
+    public void setDocumentName(String text) {
+        name = text;
+    }
+
     public <T extends Event> void onEvent(T event) {
         if (event instanceof EditorKeyPressedEvent) {
             onEditorKeyPressedEvent((EditorKeyPressedEvent) event);
@@ -49,5 +54,7 @@ public class Document extends pl.softlink.spellbinder.global.Document implements
     public String getDocumentName() {
         return name;
     }
+
+
 
 }

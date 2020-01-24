@@ -49,8 +49,27 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
             case "openDocument":
                 openDocumentAction(requestJson);
                 break;
+            case "changeName":
+                changeNameAction(requestJson);
+                break;
 
         }
+    }
+
+    private void changeNameAction(JSONObject requestJson) {
+        Response response = new Response(requestJson);
+
+        JSONObject body = requestJson.getJSONObject("body");
+        Integer documentId = body.getInt("documentId");
+        String newName = body.getString("documentName");
+
+        Document document = Document.findById(documentId);
+        document.setName(newName);
+        document.save();
+
+        response.put("code", 200);
+        String payloadString = response.toString();
+        connectionContainer.getConnection().push(payloadString);
     }
 
     private void openDocumentAction(JSONObject requestJson) {
@@ -59,7 +78,9 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
 
         JSONObject body = requestJson.getJSONObject("body");
         Integer documentId = body.getInt("documentId");
-        connectionContainer.setCurrentDocumentId(documentId);
+        Document document = Document.findById(documentId);
+        connectionContainer.setCurrentDocumentId(document.getId());
+        response.putBody("content", document.getContent());
         response.put("code", 200);
         String payloadString = response.toString();
         connectionContainer.getConnection().push(payloadString);

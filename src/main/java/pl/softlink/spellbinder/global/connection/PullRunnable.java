@@ -16,6 +16,7 @@ public class PullRunnable implements Runnable {
     private boolean closed = false;
     private LinkedList<String> payloadList = new LinkedList<String>();
     private Lock lock = new ReentrantLock();
+    private Connection connection;
 
     public PullRunnable(Socket socket) {
         this.socket = socket;
@@ -54,8 +55,12 @@ public class PullRunnable implements Runnable {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("PushRunnable: nie można odczytać bufora.", e);
+            System.out.println("Rozłączono..");
+            connection.shutdown();
         }
     }
 
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
 }

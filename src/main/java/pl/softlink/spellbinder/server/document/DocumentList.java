@@ -1,10 +1,10 @@
 package pl.softlink.spellbinder.server.document;
 
-import pl.softlink.spellbinder.global.Document;
 import pl.softlink.spellbinder.global.event.DocumentChangedRemotelyEvent;
 import pl.softlink.spellbinder.global.event.EventListener;
 import pl.softlink.spellbinder.global.event.PatchReceivedEvent;
 import pl.softlink.spellbinder.server.Context;
+import pl.softlink.spellbinder.server.Document;
 
 import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
@@ -20,7 +20,8 @@ public class DocumentList implements EventListener<PatchReceivedEvent> {
         lock.lock();
         try {
             if (! documentMap.containsKey(documentId)) {
-                documentMap.put(documentId, new Document(documentId));
+                pl.softlink.spellbinder.server.model.Document documentModel = pl.softlink.spellbinder.server.model.Document.findById(documentId);
+                documentMap.put(documentId, new Document(documentModel));
             }
         } finally {
             lock.unlock();
@@ -34,6 +35,8 @@ public class DocumentList implements EventListener<PatchReceivedEvent> {
         document.patch(event.getDiff());
         Context.getMainContext().postEvent(new DocumentChangedRemotelyEvent(event.getConnectionId(), document, event.getDiff()));
     }
+
+
 
 
 }

@@ -76,6 +76,7 @@ public class ListController extends ControllerAbstract {
 
         switch (responseCode) {
             case 200:
+                document.setContent(response.getPayload().getString("content"));
                 return true;
             default:
                 throw new RuntimeException("Document server open failure. Code: " + response.getCode() + "; error: " + response.getError());

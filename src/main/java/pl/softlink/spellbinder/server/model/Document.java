@@ -29,7 +29,6 @@ public class Document extends Model {
         this.access_key = Security.md5(Integer.toString(new Random().nextInt(999999)));
     }
 
-
     public Integer getId() {
         return id;
     }
@@ -122,5 +121,18 @@ public class Document extends Model {
         }
 
         return documentList;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Document setName(String name) {
+        this.name = name;
+        return this;
     }
 }

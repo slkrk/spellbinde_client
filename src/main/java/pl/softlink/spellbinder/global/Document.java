@@ -5,7 +5,7 @@ import pl.softlink.spellbinder.service.TextDiff;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Document {
+public abstract class Document {
 
     private int documentId;
     protected String content = "";
@@ -13,6 +13,11 @@ public class Document {
 
     public Document(int documentId) {
         this.documentId = documentId;
+    }
+
+    public Document(int documentId, String content) {
+        this.documentId = documentId;
+        this.content = content;
     }
 
     public String getContent() {
@@ -37,4 +42,5 @@ public class Document {
         return documentId;
     }
 
+    public abstract void setDocumentName(String text);
 }
