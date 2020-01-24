@@ -125,8 +125,8 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
         if (existingUser == null) {
             User user = new User(email, password);
             user.save();
-            response.put("email", user.getEmail());
-            response.put("userId", user.getId().toString());
+            response.putBody("email", user.getEmail());
+            response.putBody("userId", user.getId().toString());
             response.put("code", 201);
             connectionContainer.setUser(user);
 
@@ -147,6 +147,7 @@ public class RemoteActionRunnable extends pl.softlink.spellbinder.global.connect
         User existingUser = User.findByEmail(email);
 
         if (existingUser == null || !existingUser.getPassword().equals(password)) {
+            response.put("error", "Nie odnaleziono użytkownika.");
             response.put("code", 401);
         } else {
             HashMap<String, String> responseBody = new HashMap<String, String>();

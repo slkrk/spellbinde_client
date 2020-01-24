@@ -49,6 +49,7 @@ public class PullRunnable implements Runnable {
                 lock.lock();
                 try {
                     payloadList.addLast(payload);
+                    System.out.println("Odebrano dane: " + payload);
                 } finally {
                     lock.unlock();
                 }

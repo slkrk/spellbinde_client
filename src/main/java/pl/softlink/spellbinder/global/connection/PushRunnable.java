@@ -56,6 +56,7 @@ public class PushRunnable implements Runnable {
                 }
 
                 out.println(payload);
+                System.out.println("Wysłano dane: " + payload);
             }
 
         } catch (IOException e) {

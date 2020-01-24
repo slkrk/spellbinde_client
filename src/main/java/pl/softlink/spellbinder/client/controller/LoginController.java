@@ -57,6 +57,7 @@ public class LoginController extends ControllerAbstract {
                 getContext().getFrontController().loadMain();
                 break;
             default:
+                loginErrorLabel.setStyle(STYLE_ERROR);
                 loginErrorLabel.setText(response.getError());
         }
     }
@@ -86,7 +87,7 @@ public class LoginController extends ControllerAbstract {
             case 201:
                 getContext().setUser(
                     new User(
-                        response.getPayload().getInt("userid"),
+                        response.getPayload().getInt("userId"),
                         response.getPayload().getString("email")
                     )
                 );
