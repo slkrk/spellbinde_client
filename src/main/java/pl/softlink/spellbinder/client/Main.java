@@ -52,6 +52,8 @@ public class Main extends Application {
         connection.start();
 
         launch(args);
-//        connection.close();
+        connection.close();
+        connection.shutdown();
+        System.exit(0);
     }
 }
